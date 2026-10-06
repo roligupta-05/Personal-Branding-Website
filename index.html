@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roli Gupta | Computer Science & Engineering Portfolio</title>
+
+    <!-- Google Fonts: Lora (Headings) & Open Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'off-white': '#faf9f6',
+                        'off-white-card': '#f4f3ef',
+                        'charcoal': '#22252a',
+                        'charcoal-muted': '#525760',
+                        'sage': '#62826d',
+                        'sage-hover': '#4f6b58',
+                        'sage-light': '#edf2ee',
+                        'thin-border': '#e2e0d8'
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #faf9f6;
+            color: #22252a;
+            font-family: 'Open Sans', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Lora', serif;
+        }
+
+        /* Subtle Fade-in Animation on Scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image hover effect */
+        .image-frame {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .image-frame:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -10px rgba(98, 130, 109, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-off-white text-charcoal antialiased selection:bg-sage-light selection:text-sage min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-off-white/90 backdrop-blur-md border-b border-thin-border transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 sm:px-12 h-20 flex items-center justify-between">
+            <a href="#" class="flex flex-col group">
+                <span class="font-serif text-xl tracking-tight text-charcoal font-medium group-hover:text-sage transition-colors duration-200">
+                    ROLI GUPTA
+                </span>
+                <span class="text-[10px] text-charcoal-muted tracking-widest uppercase font-light">
+                    CSE Student & Developer
+                </span>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs tracking-widest uppercase font-medium text-charcoal-muted">
+                <a href="#who-i-am" class="hover:text-sage transition-colors duration-200">Who I Am</a>
+                <a href="#my-skills" class="hover:text-sage transition-colors duration-200">My Skills</a>
+                <a href="#future-goals" class="hover:text-sage transition-colors duration-200">Future Goals</a>
+                <a href="#contact" class="px-4 py-2 border border-sage text-sage hover:bg-sage hover:text-white transition-all duration-200 rounded-sm">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden p-2 text-charcoal focus:outline-none" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-thin-border bg-off-white px-6 py-6 space-y-4 text-xs tracking-widest uppercase font-medium">
+            <a href="#who-i-am" class="block text-charcoal-muted hover:text-sage transition-colors">Who I Am</a>
+            <a href="#my-skills" class="block text-charcoal-muted hover:text-sage transition-colors">My Skills</a>
+            <a href="#future-goals" class="block text-charcoal-muted hover:text-sage transition-colors">Future Goals</a>
+            <a href="#contact" class="block text-sage font-semibold">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Banner -->
+        <section class="max-w-6xl mx-auto px-6 sm:px-12 pt-20 pb-16 sm:pt-28 sm:pb-24 fade-in-section">
+            <div class="max-w-3xl space-y-6">
+                <span class="inline-block text-xs tracking-widest uppercase text-sage font-semibold border-b border-sage/30 pb-1">Personal Portfolio</span>
+                <h1 class="font-serif text-4xl sm:text-6xl font-normal leading-tight text-charcoal">
+                    Roli Gupta
+                </h1>
+                <p class="font-serif text-lg sm:text-2xl text-charcoal-muted italic font-normal">
+                    2nd-Year Computer Science & Engineering Student | Aspiring Software Engineer & AI Enthusiast
+                </p>
+                <p class="text-charcoal-muted text-sm sm:text-base font-light leading-relaxed max-w-2xl pt-2">
+                    A calm, analytical engineering mindset focused on building strong technical foundations, algorithm development, and practical AI implementations. Targeted for companies and teams valuing technical clarity, discipline, and constant growth.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4 text-xs tracking-widest uppercase font-medium">
+                    <a href="#who-i-am" class="px-6 py-3 bg-sage text-white rounded-sm hover:bg-sage-hover transition-colors duration-200">
+                        Explore Portfolio
+                    </a>
+                    <a href="#contact" class="px-6 py-3 border border-thin-border text-charcoal hover:border-sage hover:text-sage transition-colors duration-200">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-6xl mx-auto px-6 sm:px-12"><div class="h-[1px] bg-thin-border"></div></div>
+
+        <!-- SECTION 1: WHO I AM -->
+        <section id="who-i-am" class="max-w-6xl mx-auto px-6 sm:px-12 py-20 sm:py-28 fade-in-section">
+            <div class="mb-12">
+                <span class="text-xs tracking-widest uppercase text-sage font-semibold block mb-1">01 / Profile</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-normal">Who I Am</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <!-- Content Points -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Identity Card -->
+                    <div class="bg-off-white-card p-6 rounded-md border border-thin-border space-y-2">
+                        <span class="text-[11px] uppercase tracking-wider text-sage font-semibold block">Identity</span>
+                        <p class="text-charcoal text-sm sm:text-base leading-relaxed font-light">
+                            A 21-year-old 2nd-year B.Tech student in Computer Science and Engineering (CSE), passionate about technology, software development, and Artificial Intelligence.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Core Personality Card -->
+                        <div class="bg-off-white-card p-6 rounded-md border border-thin-border space-y-2">
+                            <span class="text-[11px] uppercase tracking-wider text-sage font-semibold block">Core Personality</span>
+                            <p class="text-charcoal-muted text-xs sm:text-sm leading-relaxed font-light">
+                                Driven by a curious, analytical, creative, and hardworking mindset with a constant drive to explore and learn new technologies.
+                            </p>
+                        </div>
+
+                        <!-- Academic Philosophy Card -->
+                        <div class="bg-off-white-card p-6 rounded-md border border-thin-border space-y-2">
+                            <span class="text-[11px] uppercase tracking-wider text-sage font-semibold block">Academic Philosophy</span>
+                            <p class="text-charcoal-muted text-xs sm:text-sm leading-relaxed font-light">
+                                Dedicated to mastering strong technical fundamentals while continuously sharpening problem-solving abilities.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Interests Card -->
+                    <div class="bg-off-white-card p-6 rounded-md border border-thin-border space-y-3">
+                        <span class="text-[11px] uppercase tracking-wider text-sage font-semibold block">Key Interests</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white border border-thin-border text-charcoal-muted text-xs rounded-sm">Coding</span>
+                            <span class="px-3 py-1 bg-white border border-thin-border text-charcoal-muted text-xs rounded-sm">Software Development</span>
+                            <span class="px-3 py-1 bg-white border border-thin-border text-charcoal-muted text-xs rounded-sm">AI Concepts</span>
+                            <span class="px-3 py-1 bg-white border border-thin-border text-charcoal-muted text-xs rounded-sm">Innovation</span>
+                            <span class="px-3 py-1 bg-white border border-thin-border text-charcoal-muted text-xs rounded-sm">Hands-on Technology Projects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Image -->
+                <div class="lg:col-span-5">
+                    <div class="image-frame p-2 bg-white border border-thin-border rounded-md shadow-sm">
+                        <img 
+                            src="https://i.ibb.co/ycCyXwKk/Who.png" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/faf9f6/62826d?text=Who+I+Am+Image';" 
+                            alt="Roli Gupta - Who I Am" 
+                            class="w-full h-auto rounded-sm object-cover"
+                        />
+                        <div class="p-3 text-center border-t border-thin-border/50 mt-2">
+                            <span class="text-[11px] text-charcoal-muted tracking-wider uppercase font-light">Figure 1.0 — Who I Am</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-6xl mx-auto px-6 sm:px-12"><div class="h-[1px] bg-thin-border"></div></div>
+
+        <!-- SECTION 2: MY SKILLS -->
+        <section id="my-skills" class="max-w-6xl mx-auto px-6 sm:px-12 py-20 sm:py-28 fade-in-section">
+            <div class="mb-12">
+                <span class="text-xs tracking-widest uppercase text-sage font-semibold block mb-1">02 / Technical Abilities</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-normal">My Skills</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <!-- Section Image -->
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="image-frame p-2 bg-white border border-thin-border rounded-md shadow-sm">
+                        <img 
+                            src="https://i.ibb.co/r2YW6LbV/Skills.png"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/faf9f6/62826d?text=My+Skills+Image';" 
+                            alt="Roli Gupta - My Skills" 
+                            class="w-full h-auto rounded-sm object-cover"
+                        />
+                        <div class="p-3 text-center border-t border-thin-border/50 mt-2">
+                            <span class="text-[11px] text-charcoal-muted tracking-wider uppercase font-light">Figure 2.0 — My Skills</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Categories Grid -->
+                <div class="lg:col-span-7 order-1 lg:order-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Programming & Core CS -->
+                    <div class="bg-off-white-card p-6 rounded-md border border-thin-border hover:border-sage/40 transition-colors duration-200 space-y-3">
+                        <span class="text-[10px] font-mono uppercase tracking-widest text-sage block">01 / Fundamentals</span>
+                        <h3 class="font-serif text-lg text-charcoal font-medium">Programming & Core Computer Science</h3>
+                        <ul class="space-y-2 text-xs sm:text-sm text-charcoal-muted font-light leading-relaxed">
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Proficient in C, Java, and Python.</li>
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Solid understanding of fundamental Data Structures and Algorithms (DSA) using C and Java.</li>
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Practical application of logical thinking and algorithmic problem-solving.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Web & Software Development -->
+                    <div class="bg-off-white-card p-6 rounded-md border border-thin-border hover:border-sage/40 transition-colors duration-200 space-y-3">
+                        <span class="text-[10px] font-mono uppercase tracking-widest text-sage block">02 / Engineering</span>
+                        <h3 class="font-serif text-lg text-charcoal font-medium">Web & Software Development</h3>
+                        <ul class="space-y-2 text-xs sm:text-sm text-charcoal-muted font-light leading-relaxed">
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Knowledgeable in web technologies, including HTML, CSS, and basic JavaScript.</li>
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Experience developing Java-based projects, including a Java Library Management System.</li>
+                        </ul>
+                    </div>
+
+                    <!-- AI/ML & Tools -->
+                    <div class="bg-off-white-card p-6 rounded-md border border-thin-border hover:border-sage/40 transition-colors duration-200 space-y-3">
+                        <span class="text-[10px] font-mono uppercase tracking-widest text-sage block">03 / Tooling</span>
+                        <h3 class="font-serif text-lg text-charcoal font-medium">AI/ML & Development Tools</h3>
+                        <ul class="space-y-2 text-xs sm:text-sm text-charcoal-muted font-light leading-relaxed">
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Actively exploring core Artificial Intelligence and Machine Learning concepts.</li>
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Hands-on tool usage with VS Code and GitHub for development and version control.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Professional Strengths -->
+                    <div class="bg-off-white-card p-6 rounded-md border border-thin-border hover:border-sage/40 transition-colors duration-200 space-y-3">
+                        <span class="text-[10px] font-mono uppercase tracking-widest text-sage block">04 / Soft Skills</span>
+                        <h3 class="font-serif text-lg text-charcoal font-medium">Professional & Interpersonal Strengths</h3>
+                        <ul class="space-y-2 text-xs sm:text-sm text-charcoal-muted font-light leading-relaxed">
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Experienced in teamwork and leadership through college team projects and competitions.</li>
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>Skilled in presentation, PPT creation, and clearly communicating complex technical ideas.</li>
+                            <li class="flex items-start"><span class="text-sage mr-2">•</span>College hackathons and AI-based solution project experience.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-6xl mx-auto px-6 sm:px-12"><div class="h-[1px] bg-thin-border"></div></div>
+
+        <!-- SECTION 3: MY FUTURE GOALS -->
+        <section id="future-goals" class="max-w-6xl mx-auto px-6 sm:px-12 py-20 sm:py-28 fade-in-section">
+            <div class="mb-12">
+                <span class="text-xs tracking-widest uppercase text-sage font-semibold block mb-1">03 / Roadmap</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-normal">My Future Goals</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <!-- Content & Roadmap -->
+                <div class="lg:col-span-7 space-y-8">
+                    <!-- Ultimate Vision -->
+                    <div class="p-6 bg-white border-l-2 border-sage border-y border-r border-thin-border rounded-r-md space-y-2">
+                        <span class="text-[10px] uppercase tracking-widest text-sage font-semibold block">Ultimate Vision</span>
+                        <p class="font-serif text-base sm:text-lg text-charcoal font-normal leading-relaxed">
+                            "To become a skilled, confident, and independent technology professional with high-level expertise in programming, Data Structures & Algorithms, AI/ML, and software development."
+                        </p>
+                    </div>
+
+                    <!-- Milestones -->
+                    <div class="space-y-4">
+                        <h3 class="font-serif text-xl text-charcoal font-normal">Academic & Practical Milestones</h3>
+                        <div class="space-y-3">
+                            <div class="p-4 bg-off-white-card border border-thin-border rounded-md flex items-start space-x-3">
+                                <span class="font-mono text-sage font-semibold text-xs mt-0.5">01</span>
+                                <p class="text-xs sm:text-sm text-charcoal-muted font-light leading-relaxed">
+                                    Build rock-solid technical foundations throughout my B.Tech degree.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-off-white-card border border-thin-border rounded-md flex items-start space-x-3">
+                                <span class="font-mono text-sage font-semibold text-xs mt-0.5">02</span>
+                                <p class="text-xs sm:text-sm text-charcoal-muted font-light leading-relaxed">
+                                    Expand hands-on expertise in Java, DSA, AI/ML, and full-stack development.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-off-white-card border border-thin-border rounded-md flex items-start space-x-3">
+                                <span class="font-mono text-sage font-semibold text-xs mt-0.5">03</span>
+                                <p class="text-xs sm:text-sm text-charcoal-muted font-light leading-relaxed">
+                                    Gain industry exposure through meaningful projects, competitions, and internships.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Career Objective -->
+                    <div class="p-6 bg-off-white-card border border-thin-border rounded-md space-y-2">
+                        <span class="text-[10px] uppercase tracking-widest text-sage font-semibold block">Career Objective</span>
+                        <p class="text-xs sm:text-sm text-charcoal-muted font-light leading-relaxed">
+                            Secure an impactful role in the technology industry where I can apply my skills to solve real-world problems while growing continuously as an engineer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section Image -->
+                <div class="lg:col-span-5">
+                    <div class="image-frame p-2 bg-white border border-thin-border rounded-md shadow-sm">
+                        <img 
+                            src="https://i.ibb.co/chDmc3rR/Goals.png"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/faf9f6/62826d?text=Future+Goals+Image';" 
+                            alt="Roli Gupta - Future Goals" 
+                            class="w-full h-auto rounded-sm object-cover"
+                        />
+                        <div class="p-3 text-center border-t border-thin-border/50 mt-2">
+                            <span class="text-[11px] text-charcoal-muted tracking-wider uppercase font-light">Figure 3.0 — My Future Goals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT / RECRUITER CTA SECTION -->
+        <section id="contact" class="border-t border-thin-border bg-white py-20 fade-in-section">
+            <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
+                <span class="text-xs tracking-widest uppercase text-sage font-semibold">Connect with Me</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-normal">Interested in Collaborating or Hiring?</h2>
+                <p class="text-xs sm:text-sm text-charcoal-muted font-light max-w-lg mx-auto leading-relaxed">
+                    I am actively seeking software engineering internships, technical hackathon collaborations, and professional mentorship.
+                </p>
+
+                <!-- Copy Email Component -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div class="px-5 py-3 bg-off-white border border-thin-border rounded-md text-xs sm:text-sm font-mono text-charcoal">
+                        roli.gupta.cse@example.com
+                    </div>
+                    <button onclick="copyEmail(this)" class="px-6 py-3 bg-sage text-white text-xs tracking-wider uppercase rounded-md hover:bg-sage-hover transition-colors duration-200">
+                        Copy Email Address
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-thin-border py-8 text-center text-xs text-charcoal-muted bg-off-white">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 font-light">
+            <p>© 2026 Roli Gupta. Personal Portfolio.</p>
+            <div class="flex space-x-6">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-sage transition-colors">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-sage transition-colors">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Scroll-driven Fade In Animations using IntersectionObserver
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+            // Mobile Menu Toggle logic
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+
+        // Email Copy Logic
+        function copyEmail(button) {
+            const email = "roli.gupta.cse@example.com";
+            const tempInput = document.createElement("input");
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            const originalText = button.textContent;
+            button.textContent = "COPIED TO CLIPBOARD";
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
