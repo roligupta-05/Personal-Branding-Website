@@ -1,5 +1,3 @@
-# Personal Branding Website
-
 A personal portfolio website created using vibe coding, where AI generated both the code and the images from my prompts.
 
 ## About
@@ -30,4 +28,3 @@ https://jocular-stroopwafel-f85221.netlify.app
 ## Author
 Roli Gupta
 
-[Your Name]
