@@ -2,8 +2,6 @@
 
 A complete, responsive, production-quality personal portfolio website created using **vibe coding**, where AI generated both the code and the images based on my prompts. 
 
-This project was built for **Lab 2 of the Generative AI course at Samsung Innovation Campus** to introduce me professionally to recruiters, hiring managers, and technology companies.
-
 
 ##  Live Demo
 
