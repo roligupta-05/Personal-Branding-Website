@@ -8,7 +8,7 @@ This project was built for Lab 2 of the Generative AI course at Samsung Innovati
 - **My Future Goal**: where I want to go
 
 ## Live Demo
-https://jocular-stroopwafel-f85221.netlify.app
+https://elaborate-crepe-c7ea1d.netlify.app
 
 ## Built With
 - HTML5
