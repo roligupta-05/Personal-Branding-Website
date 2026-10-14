@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roli Gupta — Software Development & AI Enthusiast Portfolio</title>
+    <meta name="description" content="Portfolio of Roli Gupta, a 21-year-old 2nd-year B.Tech CSE student passionate about software development, DSA, and AI/ML.">
+    
+    <!-- Google Fonts: Lora (Headings) & Open Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        offwhite: '#F9F8F6',
+                        charcoal: '#2C2C2C',
+                        sage: '#7C8F80',
+                        'sage-dark': '#5E6E61',
+                        'sage-light': '#E8ECE9',
+                        darkbg: '#1A1A1A',
+                        darkcard: '#242424',
+                        darkborder: '#333333'
+                    },
+                    fontFamily: {
+                        lora: ['Lora', 'serif'],
+                        sans: ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS for minimalist editorial aesthetics and smooth animations -->
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-color, #F9F8F6);
+            color: var(--text-color, #2C2C2C);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-editorial {
+            font-family: 'Lora', serif;
+        }
+
+        /* Scroll reveal initial state */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7C8F80;
+            border-radius: 4px;
+        }
+
+        /* Subtle image frame shadow */
+        .editorial-image-frame {
+            box-shadow: 0 20px 40px -15px rgba(44, 44, 44, 0.08);
+            border: 1px solid rgba(124, 143, 128, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-offwhite text-charcoal dark:bg-darkbg dark:text-gray-100 antialiased selection:bg-sage selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-offwhite/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-gray-200 dark:border-darkborder transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#hero" class="font-editorial text-xl font-bold tracking-tight hover:text-sage transition-colors">
+                Roli Gupta
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-sage transition-colors">Who I Am</a>
+                <a href="#skills" class="hover:text-sage transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-sage transition-colors">Projects</a>
+                <a href="#goals" class="hover:text-sage transition-colors">Future Goals</a>
+                <a href="#contact" class="hover:text-sage transition-colors">Connect</a>
+            </nav>
+
+            <!-- Actions: Theme Toggle & Mobile Hamburger -->
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" aria-label="Toggle Theme" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-darkborder transition-colors">
+                    <!-- Sun icon -->
+                    <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <!-- Moon icon -->
+                    <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+
+                <button id="mobile-menu-btn" aria-label="Open Menu" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-darkborder transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-offwhite dark:bg-darkbg border-b border-gray-200 dark:border-darkborder px-6 py-6 space-y-4 shadow-lg">
+            <a href="#about" class="block text-lg font-medium hover:text-sage transition-colors mobile-link">Who I Am</a>
+            <a href="#skills" class="block text-lg font-medium hover:text-sage transition-colors mobile-link">Skills</a>
+            <a href="#projects" class="block text-lg font-medium hover:text-sage transition-colors mobile-link">Projects</a>
+            <a href="#goals" class="block text-lg font-medium hover:text-sage transition-colors mobile-link">Future Goals</a>
+            <a href="#contact" class="block text-lg font-medium hover:text-sage transition-colors mobile-link">Connect</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center pt-24 pb-16 px-6 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 space-y-6 reveal">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sage-light dark:bg-darkcard border border-sage/30 text-sage-dark dark:text-sage text-xs font-semibold tracking-wider uppercase">
+                    <span>Second-Year B.Tech CSE Student</span>
+                </div>
+                <h1 class="font-editorial text-4xl sm:text-6xl font-bold tracking-tight leading-tight">
+                    Roli Gupta
+                </h1>
+                <p class="text-xl sm:text-2xl font-light text-gray-600 dark:text-gray-300 font-editorial italic">
+                    Software Development &amp; Artificial Intelligence Enthusiast
+                </p>
+                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+                    A 21-year-old engineering student dedicated to building clean, reliable software systems, exploring data structures and algorithms, and cultivating a disciplined approach to problem-solving and AI/ML fundamentals.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" class="px-7 py-3 rounded-full bg-sage hover:bg-sage-dark text-white font-medium text-sm transition-all shadow-sm hover:shadow">
+                        Explore Projects
+                    </a>
+                    <a href="#contact" class="px-7 py-3 rounded-full border border-sage/50 hover:border-sage text-charcoal dark:text-gray-200 font-medium text-sm transition-all">
+                        Get in Touch
+                    </a>
+                </div>
+                <div class="flex items-center space-x-6 pt-4 text-sm text-gray-500 dark:text-gray-400">
+                    <a href="https://www.linkedin.com/in/roli-gupta" target="_blank" rel="noopener noreferrer" class="hover:text-sage transition-colors inline-flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/roligupta-05" target="_blank" rel="noopener noreferrer" class="hover:text-sage transition-colors inline-flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Visual Treatment -->
+            <div class="relative w-72 h-96 sm:w-80 sm:h-[420px] rounded-2xl overflow-hidden editorial-image-frame bg-sage-light dark:bg-darkcard border border-sage/20 p-6 flex flex-col items-center justify-center text-center">
+  <!-- Profile Photo -->
+  <img src="https://i.ibb.co/Xxz5RN49/Pic1.jpg"></a>
+    
+
+  <h3 class="font-editorial text-xl font-bold mb-1">Roli Gupta</h3>
+  <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">B.Tech CSE Student</p>
+  <div class="w-12 h-0.5 bg-sage mx-auto my-2"></div>
+  <p class="text-xs text-gray-600 dark:text-gray-300 italic mt-2">"Curiosity, technical discipline, and continuous learning."</p>
+</div>
+        </div>
+    </section>
+
+    <!-- Who I Am Section -->
+    <section id="about" class="py-24 px-6 border-t border-gray-200 dark:border-darkborder bg-white dark:bg-darkcard/50">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Asset Image Container -->
+            
+
+            <!-- Content -->
+            <div class="md:col-span-7 space-y-6 reveal">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sage-light dark:bg-darkcard border border-sage/30 text-sage-dark dark:text-sage text-xs font-semibold tracking-wider uppercase">
+                    <span>Background &amp; Philosophy</span>
+                </div>
+                <h2 class="font-editorial text-3xl sm:text-4xl font-bold tracking-tight">
+                    Who I Am
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
+                    I am a 21-year-old second-year B.Tech Computer Science and Engineering student. My academic journey is driven by an innate curiosity about how software systems operate under the hood and how computational thinking can solve real-world complexities.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                    <div class="p-6 rounded-xl bg-offwhite dark:bg-darkcard border border-gray-200 dark:border-darkborder">
+                        <h3 class="font-editorial font-bold text-lg mb-2 text-sage-dark dark:text-sage">Academic Focus</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Building a rigorous foundation in core computer science subjects, including data structures, algorithms, operating systems, and object-oriented programming.
+                        </p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-offwhite dark:bg-darkcard border border-gray-200 dark:border-darkborder">
+                        <h3 class="font-editorial font-bold text-lg mb-2 text-sage-dark dark:text-sage">Learning Philosophy</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Believing in disciplined daily practice, meticulous code structuring, and understanding foundational principles rather than relying on superficial shortcuts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Skills Section -->
+    <section id="skills" class="py-24 px-6 border-t border-gray-200 dark:border-darkborder">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4 reveal">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sage-light dark:bg-darkcard border border-sage/30 text-sage-dark dark:text-sage text-xs font-semibold tracking-wider uppercase">
+                    <span>Capabilities &amp; Tools</span>
+                </div>
+                <h2 class="font-editorial text-3xl sm:text-4xl font-bold tracking-tight">
+                    My Skills
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Presented honestly without exaggerated proficiency scores or invented ratings. Grounded in practical study and project application.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-16">
+                <!-- Skill Categories -->
+                <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
+                    <!-- Programming Languages -->
+                    <div class="p-6 rounded-xl bg-white dark:bg-darkcard border border-gray-200 dark:border-darkborder shadow-sm">
+                        <h3 class="font-editorial font-bold text-lg mb-3 text-sage-dark dark:text-sage border-b border-gray-100 dark:border-darkborder pb-2">Languages</h3>
+                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>C Programming</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>Java (OOPs &amp; Systems)</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>Python</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Core CS & Web -->
+                    <div class="p-6 rounded-xl bg-white dark:bg-darkcard border border-gray-200 dark:border-darkborder shadow-sm">
+                        <h3 class="font-editorial font-bold text-lg mb-3 text-sage-dark dark:text-sage border-b border-gray-100 dark:border-darkborder pb-2">Core CS &amp; Web</h3>
+                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>Data Structures &amp; Algorithms (DSA)</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>HTML5 &amp; CSS3</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>Basic JavaScript</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- AI & Tools -->
+                    <div class="p-6 rounded-xl bg-white dark:bg-darkcard border border-gray-200 dark:border-darkborder shadow-sm">
+                        <h3 class="font-editorial font-bold text-lg mb-3 text-sage-dark dark:text-sage border-b border-gray-100 dark:border-darkborder pb-2">AI &amp; Environment</h3>
+                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>AI / ML Fundamentals</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>VS Code &amp; Git / GitHub</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="p-6 rounded-xl bg-white dark:bg-darkcard border border-gray-200 dark:border-darkborder shadow-sm">
+                        <h3 class="font-editorial font-bold text-lg mb-3 text-sage-dark dark:text-sage border-b border-gray-100 dark:border-darkborder pb-2">Professional</h3>
+                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>Teamwork &amp; Collaboration</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                <span>Technical Presentations</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills Image Asset -->
+<div class="md:col-span-5 reveal">
+  
+  <!-- 1. The container box: Use absolute/relative positioning and a defined aspect ratio -->
+  <div class="relative rounded-xl overflow-hidden aspect-video bg-[#7C8F80] w-full">
+    
+    <!-- 2. The image: Add "block" and explicit layout forcing utility classes -->
+    <img class="absolute inset-0 w-full h-full object-cover block" 
+         src= "https://i.ibb.co/tMCb2qq5/My-Skills.png"
+         alt="My Skills">
+    
+    <!-- 3. The overlay text capsule -->
+    <div class="absolute bottom-4 left-4 right-4 bg-white/70 backdrop-blur-sm p-2 rounded-lg text-center">
+      <code class="text-sm font-mono text-gray-800">MySkills</code>
+    </div>
+
+  </div>
+
+</div>
+                
+            </div>
+        </div>
+
+    <!-- My Projects Section -->
+    <section id="projects" class="py-24 px-6 border-t border-gray-200 dark:border-darkborder bg-white dark:bg-darkcard/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4 reveal">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sage-light dark:bg-darkcard border border-sage/30 text-sage-dark dark:text-sage text-xs font-semibold tracking-wider uppercase">
+                    <span>Engineering Work</span>
+                </div>
+                <h2 class="font-editorial text-3xl sm:text-4xl font-bold tracking-tight">
+                    My Projects
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Showcasing software design, modular programming, and practical applications.
+                </p>
+            </div>
+
+            <!-- Featured Project Card: Java Library Management System -->
+            <div class="max-w-4xl mx-auto bg-offwhite dark:bg-darkcard rounded-2xl border border-gray-200 dark:border-darkborder overflow-hidden shadow-sm reveal">
+                <div class="p-8 sm:p-12 space-y-6">
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+                        <span class="px-3 py-1 rounded-full bg-sage/20 text-sage-dark dark:text-sage text-xs font-semibold uppercase tracking-wider">Featured Project</span>
+                        <div class="flex items-center space-x-3 text-sm text-gray-500">
+                            <span class="px-2.5 py-1 rounded bg-gray-200 dark:bg-darkborder text-xs font-medium">Java</span>
+                            <span class="px-2.5 py-1 rounded bg-gray-200 dark:bg-darkborder text-xs font-medium">OOP Principles</span>
+                            <span class="px-2.5 py-1 rounded bg-gray-200 dark:bg-darkborder text-xs font-medium">Console Application</span>
+                        </div>
+                    </div>
+                    <h3 class="font-editorial text-2xl sm:text-3xl font-bold">Java Library Management System</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-base">
+                        A comprehensive, object-oriented console application designed to streamline library operations. It handles book cataloging, member registration, borrowing and return workflows, and search functionalities with robust data validation and clean class architecture.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-sm text-gray-600 dark:text-gray-400">
+                        <div class="flex items-start space-x-2">
+                            <span class="text-sage font-bold">•</span>
+                            <span>Encapsulated book records and member profiles with unique IDs.</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-sage font-bold">•</span>
+                            <span>Implemented automated due date calculation and fine tracking.</span>
+                        </div>
+                    </div>
+                    <div class="pt-6 border-t border-gray-200 dark:border-darkborder flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center space-x-4">
+                            <a href="https://github.com/roligupta-05" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-sm font-medium hover:text-sage transition-colors">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <span>View Repository on GitHub</span>
+                            </a>
+                        </div>
+                        <span class="text-xs text-gray-400 italic">More projects in development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Future Goals Section -->
+    <section id="goals" class="py-24 px-6 border-t border-gray-200 dark:border-darkborder">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Content -->
+            <div class="md:col-span-7 space-y-6 reveal">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sage-light dark:bg-darkcard border border-sage/30 text-sage-dark dark:text-sage text-xs font-semibold tracking-wider uppercase">
+                    <span>Vision &amp; Ambition</span>
+                </div>
+                <h2 class="font-editorial text-3xl sm:text-4xl font-bold tracking-tight">
+                    My Future Goals
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
+                    As I progress through my B.Tech CSE journey, my focus is centered on continuous mastery and impactful technological contributions.
+                </p>
+                <div class="space-y-4 pt-2">
+                    <div class="flex items-start space-x-4 p-4 rounded-xl bg-offwhite dark:bg-darkcard border border-gray-200 dark:border-darkborder">
+                        <div class="w-8 h-8 rounded-full bg-sage/20 text-sage-dark dark:text-sage flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                        <div>
+                            <h3 class="font-editorial font-bold text-base mb-1">Technical Mastery in Java &amp; DSA</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Deepening problem-solving capabilities and algorithm design for high-performance software engineering.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-xl bg-offwhite dark:bg-darkcard border border-gray-200 dark:border-darkborder">
+                        <div class="w-8 h-8 rounded-full bg-sage/20 text-sage-dark dark:text-sage flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                        <div>
+                            <h3 class="font-editorial font-bold text-base mb-1">AI/ML &amp; Full-Stack Development</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Expanding into intelligent systems, machine learning fundamentals, and end-to-end web applications.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-xl bg-offwhite dark:bg-darkcard border border-gray-200 dark:border-darkborder">
+                        <div class="w-8 h-8 rounded-full bg-sage/20 text-sage-dark dark:text-sage flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                        <div>
+                            <h3 class="font-editorial font-bold text-base mb-1">Internships &amp; Industry Impact</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Securing professional internships to contribute to real-world codebases and collaborate with seasoned engineers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asset Image Container -->
+          
+<div class="md:col-span-5 reveal">
+  
+  <!-- 1. The container box: Maintains consistent shape and styling -->
+  <div class="relative rounded-xl overflow-hidden aspect-video bg-[#7C8F80] w-full">
+    
+    <!-- 2. The image: Re-verify your specific image source url path below -->
+    <img class="absolute inset-0 w-full h-full object-cover block" 
+         src="https://i.ibb.co/cKdhVn0T/Future-Goal.png"
+         alt="Future Goals">
+    
+    <!-- 3. The overlay text capsule matching the design style -->
+    <div class="absolute bottom-4 left-4 right-4 bg-white/70 backdrop-blur-sm p-2 rounded-lg text-center">
+      <code class="text-sm font-mono text-gray-800">FutureGoals</code>
+    </div>
+
+  </div>
+
+</div>
+
+        </div>
+    </section>
+
+    <!-- Connect With Me Section -->
+    <section id="contact" class="py-24 px-6 border-t border-gray-200 dark:border-darkborder bg-white dark:bg-darkcard/50">
+        <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sage-light dark:bg-darkcard border border-sage/30 text-sage-dark dark:text-sage text-xs font-semibold tracking-wider uppercase">
+                <span>Get in Touch</span>
+            </div>
+            <h2 class="font-editorial text-3xl sm:text-5xl font-bold tracking-tight">
+                Connect With Me
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-base sm:text-lg">
+                I am always open to discussing software development, internship opportunities, academic collaborations, or technology projects.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-6 pt-4">
+                <a href="https://www.linkedin.com/in/roli-gupta" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full bg-sage hover:bg-sage-dark text-white font-medium text-sm transition-all shadow-sm hover:shadow flex items-center space-x-3">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/roligupta-05" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full border border-sage/50 hover:border-sage text-charcoal dark:text-gray-200 font-medium text-sm transition-all flex items-center space-x-3">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <span>GitHub Profile</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-200 dark:border-darkborder bg-offwhite dark:bg-darkbg text-sm text-gray-500 dark:text-gray-400">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p>&copy; 2026 Roli Gupta. All rights reserved.</p>
+            <div class="flex items-center space-x-6">
+                <a href="#about" class="hover:text-sage transition-colors">Who I Am</a>
+                <a href="#skills" class="hover:text-sage transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-sage transition-colors">Projects</a>
+                <a href="#goals" class="hover:text-sage transition-colors">Goals</a>
+                <a href="#contact" class="hover:text-sage transition-colors">Connect</a>
+            </div>
+            <button id="back-to-top" aria-label="Back to top" class="hover:text-sage transition-colors font-medium">
+                Back to top ↑
+            </button>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu, Scroll Reveal, Theme Toggle, and Back to Top -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Theme Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+
+            // Check stored preference or system preference
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (htmlElement.classList.contains('dark')) {
+                    htmlElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    htmlElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // Scroll Reveal Animation via Intersection Observer
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // Back to Top Button
+            const backToTopBtn = document.getElementById('back-to-top');
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Sticky Navbar shadow enhancement on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-sm');
+                } else {
+                    navbar.classList.remove('shadow-sm');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
